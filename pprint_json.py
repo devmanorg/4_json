@@ -1,13 +1,15 @@
 import json
-
+from pprint import pprint
 
 def load_data(filepath):
-    pass
+    with open(filepath, 'r', encoding='utf-8') as fh:
+        data = json.load(fh)
+    return data
 
 
 def pretty_print_json(data):
-    pass
-
+    return pprint(data)
 
 if __name__ == '__main__':
-    pass
+    data = load_data('G:/playground/alco_shops.json')
+    pretty_print_json(data)
