@@ -1,13 +1,21 @@
+# !/usr/bin/python
+# -*- coding: UTF-8 -*-
 import json
+import sys
 
 
-def load_data(filepath):
-    pass
+def main():
+    if len(sys.argv) == 2:
+        path = sys.argv[1]
+        file_dict = open(path, "r").read()
+
+        print(json.dumps(json.loads(file_dict), sort_keys=True, indent=4))
+
+    else:
+        print("Необходимо передать путь к json файлу в формате: python file {путь к json файлу}")
+
+    return 0
 
 
-def pretty_print_json(data):
-    pass
-
-
-if __name__ == '__main__':
-    pass
+if __name__ == "__main__":
+    main()
