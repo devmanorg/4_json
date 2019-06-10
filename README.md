@@ -1,6 +1,6 @@
 # Prettify JSON
 
-Here is the script for beautify json-file.
+Here is the script for beautify json-data
 
 # Quickstart
 
