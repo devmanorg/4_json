@@ -15,10 +15,16 @@ def main():
     except:
         raise Exception('Data in the current file is not a dictionary')
 
-    print(json.dumps(
+    json_data = json.dumps(
         dict_file_data,
         sort_keys=True,
-        indent=4))
+        indent=4)
+
+    print_json_data(json_data)
+
+
+def print_json_data(json_data):
+    print(json_data)
 
 
 def load_file_data(file_path):
