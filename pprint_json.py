@@ -12,7 +12,7 @@ def main():
         print(json.dumps(json.loads(file_dict), sort_keys=True, indent=4))
 
     else:
-        print("Необходимо передать путь к json файлу в формате: python file {путь к json файлу}")
+        print("Необходимо передать путь к json файлу в формате: python pprint_json.py <path to file>")
 
     return 0
 
