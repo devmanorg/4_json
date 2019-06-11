@@ -24,7 +24,7 @@ def main():
 
 
 def print_json_data(json_data):
-    print(json_data)
+    print(json_data.decode('utf-8'))
 
 
 def load_file_data(file_path):
