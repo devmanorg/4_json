@@ -10,6 +10,8 @@ def main():
         raise Exception('Try again with right format "$ python pprint_json.py <path to file>"')
 
     file_data = load_file_data(file_path=path)
+    if file_data is None:
+        exit('File was not found')
 
     try:
         dict_file_data = json.loads(file_data)
@@ -31,7 +33,7 @@ def load_file_data(file_path):
         with open(file_path, "r") as file:
             return file.read()
     except FileNotFoundError:
-        exit('File was not found')
+        return None
 
 
 if __name__ == '__main__':
