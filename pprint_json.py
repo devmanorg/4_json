@@ -1,5 +1,6 @@
 import json
 import sys
+from json import JSONDecodeError
 
 
 def main():
@@ -12,7 +13,7 @@ def main():
 
     try:
         dict_file_data = json.loads(file_data)
-    except:
+    except JSONDecodeError:
         raise Exception('Data in the current file is not a dictionary')
 
     json_data = json.dumps(
@@ -31,7 +32,7 @@ def load_file_data(file_path):
     try:
         with open(file_path, "r") as file_data:
             return file_data.read()
-    except:
+    except FileNotFoundError:
         raise Exception('File was not found')
 
 
