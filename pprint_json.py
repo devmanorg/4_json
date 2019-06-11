@@ -7,7 +7,7 @@ def main():
     if len(sys.argv) == 2:
         path = sys.argv[1]
     else:
-        raise Exception('Try again with right format "$ python pprint_json.py <path to file>"')
+        exit('Try again with right format "$ python pprint_json.py <path to file>"')
 
     file_data = load_file_data(file_path=path)
     if file_data is None:
@@ -18,14 +18,14 @@ def main():
     except JSONDecodeError:
         exit('Data in the current file is not a dictionary')
 
-    print_json_data(json.dumps(dict_file_data,
-                               sort_keys=True,
-                               indent=4,
-                               ensure_ascii=False))
+    print_json_data(dict_file_data)
 
 
-def print_json_data(json_data):
-    print(json_data)
+def print_json_data(dict_file_data):
+    print(json.dumps(dict_file_data,
+                     sort_keys=True,
+                     indent=4,
+                     ensure_ascii=False))
 
 
 def load_file_data(file_path):
