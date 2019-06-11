@@ -14,26 +14,24 @@ def main():
     try:
         dict_file_data = json.loads(file_data)
     except JSONDecodeError:
-        raise Exception('Data in the current file is not a dictionary')
+        exit('Data in the current file is not a dictionary')
 
-    json_data = json.dumps(
-        dict_file_data,
-        sort_keys=True,
-        indent=4)
-
-    print_json_data(json_data)
+    print_json_data(json.dumps(dict_file_data,
+                               sort_keys=True,
+                               indent=4,
+                               ensure_ascii=False))
 
 
 def print_json_data(json_data):
-    print(json_data.decode('utf-8'))
+    print(json_data)
 
 
 def load_file_data(file_path):
     try:
-        with open(file_path, "r") as file_data:
-            return file_data.read()
+        with open(file_path, "r") as file:
+            return file.read()
     except FileNotFoundError:
-        raise Exception('File was not found')
+        exit('File was not found')
 
 
 if __name__ == '__main__':
